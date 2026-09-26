@@ -1,125 +1,60 @@
-Selenium Automation Framework
+# Selenium Automation Framework
 
+A Python-based Selenium automation framework designed for web application testing using **Selenium WebDriver, PyTest, Unittest, Page Object Model (POM), CSV test data, configuration management, logging, screenshots, and HTML reporting**.
 
-A Python-based Selenium WebDriver automation framework for testing an e-commerce web application. The project demonstrates PyTest, Unittest, Page Object Model (POM), CSV test data, configuration management, logging, failure screenshots, and HTML reporting.
+This project was developed as a capstone automation testing project.
 
-This project was developed as a Selenium Python automation capstone project with a focus on maintainability, reusability, and clean framework design.
+---
 
-📌 Project Overview
+## 📌 Project Overview
 
-The framework automates key e-commerce application scenarios:
+The goal of this project is to demonstrate a scalable and maintainable Selenium automation framework using Python.
 
-🌐 Application launch and homepage validation
+The framework automates common e-commerce application scenarios such as:
 
-🔐 Login validation using invalid credentials
+- Opening the application
+- Login validation
+- Product search
+- Homepage validation
+- Screenshot capture on test failure
+- Test data management
+- Configuration management
+- Logging
+- HTML test reporting
 
-🔎 Product search
+---
 
-📊 CSV-based test data management
+## 🛠️ Technologies Used
 
-⚙️ Configuration management
+| Technology | Purpose |
+|---|---|
+| Python | Programming Language |
+| Selenium WebDriver | Web UI Automation |
+| PyTest | Test Execution Framework |
+| Unittest | Python Unit Testing Framework |
+| Page Object Model | Framework Design Pattern |
+| CSV | Test Data Management |
+| ConfigParser | Configuration Management |
+| Logging | Execution Logs |
+| PyTest HTML | HTML Test Reports |
+| Google Chrome | Test Browser |
+| Git & GitHub | Version Control |
 
-📸 Screenshot capture on test failure
+---
 
-📝 Execution logging
+## 🌐 Application Under Test
 
-📋 HTML test reporting
+The framework uses the TutorialsNinja demo e-commerce application.
 
-🧪 PyTest and Unittest execution
+Application:
 
-🧩 Page Object Model implementation
+https://tutorialsninja.com/demo/
 
-🌐 Application Under Test
+---
 
-TutorialsNinja Demo E-Commerce Application
+## 📂 Project Structure
 
-Application: https://tutorialsninja.com/demo/
-
-The application is used for educational and automation testing practice.
-
-🛠️ Technology Stack
-
-Technology
-
-Purpose
-
-Python 3.11+
-
-Programming language
-
-Selenium WebDriver
-
-Browser automation
-
-PyTest
-
-Test execution and fixtures
-
-Unittest
-
-Python test framework integration
-
-Page Object Model (POM)
-
-Maintainable framework design
-
-CSV
-
-External test data
-
-ConfigParser
-
-Configuration management
-
-Python Logging
-
-Execution and debugging logs
-
-pytest-html
-
-HTML execution reports
-
-Google Chrome
-
-Test browser
-
-Git / GitHub
-
-Version control
-
-🏗️ Framework Architecture
-
-The framework follows the Page Object Model (POM) approach. Test cases interact with reusable page classes instead of directly managing locators throughout the tests.
-
-┌─────────────────────────┐
-│       Test Cases        │
-│     PyTest / Unittest   │
-└────────────┬────────────┘
-             │
-             ▼
-┌─────────────────────────┐
-│       Page Objects      │
-│ LoginPage / SearchPage  │
-└────────────┬────────────┘
-             │
-      ┌──────┼────────┬────────────┐
-      ▼      ▼        ▼            ▼
-   Test     Config   Logger     Utilities
-   Data
-      │      │        │
-      └──────┴────────┴────────────┐
-                                   ▼
-                         ┌──────────────────┐
-                         │ Selenium WebDriver│
-                         └────────┬─────────┘
-                                  │
-                                  ▼
-                         ┌──────────────────┐
-                         │ Web Application  │
-                         └──────────────────┘
-
-📂 Project Structure
-
+```text
 Selenium/
 │
 ├── ECommerceAutomation/
@@ -145,67 +80,114 @@ Selenium/
 │   │   ├── csv_reader.py
 │   │   └── logger.py
 │   │
+│   ├── screenshots/
+│   │
+│   ├── reports/
+│   │
+│   ├── logs/
+│   │
 │   ├── conftest.py
 │   ├── pytest.ini
 │   ├── requirements.txt
 │   └── .gitignore
 │
-├── .gitignore
 └── README.md
+```
+🏗️ Framework Architecture
 
-Generated artifacts such as screenshots, logs, reports, caches, and the virtual environment should remain excluded through .gitignore.
+The framework follows the Page Object Model (POM) design pattern.
+```text
+Test Cases
+    │
+    ▼
+Page Objects
+    │
+    ▼
+Selenium WebDriver
+    │
+    ▼
+Web Application
 
+Supporting components:
+
+                 ┌─────────────────┐
+                 │    Test Cases   │
+                 └────────┬────────┘
+                          │
+                 ┌────────▼────────┐
+                 │   Page Objects  │
+                 └────────┬────────┘
+                          │
+        ┌─────────────────┼─────────────────┐
+        │                 │                 │
+        ▼                 ▼                 ▼
+   Test Data        Configuration       Logger
+        │                 │                 │
+        └─────────────────┼─────────────────┘
+                          │
+                          ▼
+                  Selenium WebDriver
+```
 🧪 Test Scenarios
+1. Homepage Test
 
-1. Homepage Validation
+Validates that the application can be opened successfully and that the expected page title is displayed.
 
-Verifies that the application launches successfully and that the expected page title is displayed.
+2. Invalid Login Test
 
-2. Invalid Login
+Tests login functionality using invalid credentials and verifies that the appropriate warning message is displayed.
 
-Uses invalid credentials and verifies that the application displays the expected login warning message.
+3. Product Search Test
 
-3. Product Search
-
-Searches for a product and validates that the search functionality returns the expected result.
+Searches for a product and verifies that the search functionality works correctly.
 
 4. Unittest Homepage Test
 
-Demonstrates Selenium execution using Python's built-in unittest framework.
+Demonstrates integration of Python's built-in unittest framework with Selenium.
 
-📊 Test Data Management
+📊 Test Data
 
-Test data is maintained separately from test scripts using CSV.
+Test data is maintained separately from the test scripts using CSV.
 
 Example:
 
 email,password
 invalid@example.com,invalidpassword
 
-This separation allows test data to be updated without modifying the automation logic.
+This allows test data to be modified without changing the automation code.
 
-⚙️ Configuration Management
+⚙️ Configuration
 
-Application configuration is stored in:
+Application configuration is maintained in:
 
-ECommerceAutomation/config/config.ini
+config/config.ini
 
 Example:
 
 [application]
 url=https://tutorialsninja.com/demo/
 
-The configuration utility reads the application URL so it can be reused across tests.
+The configuration utility reads the application URL and allows configuration values to be reused across tests.
+
+📸 Screenshots
+
+Screenshots can be captured when a test fails.
+
+Example location:
+
+screenshots/
+
+This helps with debugging failed Selenium tests.
 
 📝 Logging
 
-The framework includes a reusable Python logging utility.
+The framework includes a reusable logging utility.
 
-Log output is written to:
+Logs are stored in:
 
 logs/automation.log
 
-Typical execution events include:
+Example log information:
 
 Starting login process
 Opening login page
@@ -213,101 +195,54 @@ Entering email
 Entering password
 Clicking login button
 Login process completed
-
-Logging helps with debugging and understanding test execution flow.
-
-📸 Screenshot on Failure
-
-The framework supports screenshot capture when a test fails.
-
-Screenshots are stored under:
-
-screenshots/
-
-This provides visual evidence for troubleshooting Selenium failures.
-
-Generated screenshots are excluded from Git tracking through .gitignore.
-
 📋 HTML Reporting
 
-The project uses pytest-html to generate an execution report.
+The project uses pytest-html to generate an HTML execution report.
 
-Generate a report with:
+Run:
 
 pytest --html=reports/report.html
 
-The report is generated at:
+The generated report will be available at:
 
 reports/report.html
-
-🚀 Installation & Setup
-
-Prerequisites
-
-Make sure the following are installed:
-
-Python 3.11 or later
-
-Google Chrome
-
-Git
-
-pip
-
-1. Clone the Repository
-
+🚀 Installation
+Step 1: Clone the repository
 git clone https://github.com/bibeksowmondal/selenium.git
-
-2. Navigate to the Automation Project
-
+Step 2: Navigate to the project
 cd selenium
 cd ECommerceAutomation
-
-3. Create a Virtual Environment
+Step 3: Create a virtual environment
 
 Windows:
 
 python -m venv venv
+Step 4: Activate the virtual environment
 
-4. Activate the Virtual Environment
-
-PowerShell:
+Windows PowerShell:
 
 venv\Scripts\activate
-
-5. Install Dependencies
-
+Step 5: Install dependencies
 pip install -r requirements.txt
-
 ▶️ Running Tests
-
-Run the complete PyTest suite
-
+Run all PyTest tests
 pytest
-
 Run with verbose output
-
 pytest -v
-
-Run the login test
-
+Run a specific test
 pytest tests/test_login.py -v
-
 Run the product search test
-
 pytest tests/test_product_search.py -v
-
-Generate an HTML report
-
+Generate HTML report
 pytest --html=reports/report.html
+🧪 Running Unittest
 
-Run the Unittest test
+Run the Unittest test separately:
 
 python -m unittest tests/test_unittest_homepage.py -v
-
 📈 Example Test Execution
 
-A successful PyTest execution looks like:
+Example:
 
 ================ test session starts ================
 
@@ -316,73 +251,47 @@ tests/test_login.py::test_invalid_login PASSED
 tests/test_product_search.py::test_product_search PASSED
 
 ================ 3 passed ================
+🔧 Framework Features
 
-✨ Framework Features
+The framework currently demonstrates:
 
-✅ Selenium WebDriver automation
-
-✅ Python-based framework
-
-✅ PyTest integration
-
-✅ Unittest integration
-
+✅ Selenium WebDriver
+✅ Python automation
+✅ PyTest
+✅ Unittest
 ✅ Page Object Model
-
 ✅ Reusable page classes
-
-✅ CSV-driven test data
-
+✅ CSV test data
 ✅ Configuration management
-
 ✅ Logging
-
-✅ Screenshot capture on failure
-
+✅ Screenshot handling
 ✅ HTML reporting
-
-✅ Virtual environment support
-
-✅ Git/GitHub version control
-
-✅ Modular framework structure
-
-🔮 Future Enhancements
+✅ Virtual environment
+✅ Git version control
+🎯 Future Enhancements
 
 The framework can be extended with:
 
 Cross-browser testing
-
+Parallel execution
 Explicit wait utilities
-
-Parallel test execution
-
 Selenium Grid
-
 Jenkins CI/CD integration
-
 Allure reporting
-
-Excel-based test data
-
+Excel test data
 Database validation
-
-API automation integration
-
-Retry mechanisms
-
+API integration
+Advanced retry mechanisms
 Environment-specific configuration
-
-Parameterized and data-driven testing
-
-Browser and environment selection from command line
-
+Data-driven testing with multiple datasets
 👨‍💻 Author
 
 Bibek Sowmondal
 
-GitHub: https://github.com/bibeksowmondal
+GitHub:
+
+https://github.com/bibeksowmondal
 
 📄 License
 
-This project is created for educational purposes and automation testing practice.
+This project is created for educational and automation testing practice purposes.
