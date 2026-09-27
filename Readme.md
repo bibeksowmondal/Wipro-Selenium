@@ -92,10 +92,11 @@ Selenium/
 │   └── .gitignore
 │
 └── README.md
+```
 🏗️ Framework Architecture
 
 The framework follows the Page Object Model (POM) design pattern.
-
+```text
 Test Cases
     │
     ▼
@@ -126,6 +127,7 @@ Supporting components:
                           │
                           ▼
                   Selenium WebDriver
+```
 🧪 Test Scenarios
 1. Homepage Test
 
