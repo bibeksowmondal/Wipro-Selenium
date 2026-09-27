@@ -5,6 +5,15 @@ A Python-based Selenium automation framework designed for web application testin
 This project was developed as a capstone automation testing project.
 
 ---
+## 🎥 Video Demonstration
+
+A complete video demonstration of the Selenium Automation Framework is available below.
+
+The demonstration covers the framework execution, test cases, Selenium automation, logging, screenshots, and HTML reporting.
+
+▶️ **[Watch the Project Demonstration Video](https://drive.google.com/file/d/1MXvFti6pXsXYnJT-8ARc1ess3s94Ca4e/view?usp=drive_link)**
+
+
 
 ## 📌 Project Overview
 
